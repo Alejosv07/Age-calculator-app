@@ -1,0 +1,29 @@
+<article class="container bg-white px-6 py-8 flex flex-col gap-6">
+    <form class="flex gap-2">
+        <div class="flex flex-col">
+            <label for="txtDD" [ngClass]="{'colorError':!inputDD.valid && btnClick,'colorNoerror':inputDD.valid && !btnClick}">DAY</label>
+            <input type="text" [formControl]="inputDD" id="txtDD" placeholder="{{placeholderDD}}">
+            <p *ngIf="!inputDD.valid && btnClick" class="colorError">This field is required</p>
+        </div>
+        <div class="flex flex-col">
+            <label for="txtMM" [ngClass]="{'colorError':!inputMM.valid && btnClick,'colorNoerror':inputDD.valid && !btnClick}">MONTH</label>
+            <input type="text" [formControl]="inputMM" id="txtMM" placeholder="{{placeholderMM}}">
+            <p *ngIf="!inputMM.valid && btnClick" class="colorError">This field is required</p>
+        </div>
+        <div class="flex flex-col">
+            <label for="txtYYYY" [ngClass]="{'colorError':!inputYYYY.valid && btnClick,'colorNoerror':inputDD.valid && !btnClick}">YEAR</label>
+            <input type="text" [formControl]="inputYYYY" id="txtYYYY" placeholder="{{placeholderYYYY}}">
+            <p *ngIf="!inputYYYY.valid && btnClick" class="colorError">This field is required</p>
+        </div>
+    </form>
+    <div class="flex justify-center draw">
+        <button class="rounded bg-purple-500 btnCTA cursor-pointer" (click)="calculate()">
+            <img src="../../assets/images/icon-arrow.svg" alt="">
+        </button>
+    </div>
+    <div>
+        <p class="font-bold textMessage"><span class="colorPrimary">{{spanMessageYYYY}}</span> {{messageYYYY}}</p>
+        <p class="font-bold textMessage"><span class="colorPrimary">{{spanMessageMM}}</span> {{messageMM}}</p>
+        <p class="font-bold textMessage"><span class="colorPrimary">{{spanMessageDD}}</span> {{messageDD}}</p>
+    </div>
+</article>
